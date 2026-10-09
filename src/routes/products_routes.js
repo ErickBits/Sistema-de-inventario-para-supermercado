@@ -1,28 +1,16 @@
 import  {Router} from "express";
+import { getAllProducts, getProductById, createProduct, updateProduct, deleteProduct } from "../controllers/products_controllers.js";
 
 const router = Router();
 
-router.get("/productos", (req, res) => {
-  res.send("Bienvenido a la API de productos");
-});
+router.get("/productos", getAllProducts);
 
-router.get("/productos/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(`Producto con ID: ${id}`);
-}   );
+router.get("/productos/:id", getProductById);
 
-router.post("/productos", (req, res) => {
-  res.send("Producto creado");
-});
+router.post("/productos", createProduct);
 
-router.put("/productos/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(`Producto con ID: ${id} actualizado`);
-});
+router.put("/productos/:id", updateProduct);
 
-router.delete("/productos/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(`Producto con ID: ${id} eliminado`);
-});
+router.delete("/productos/:id", deleteProduct);
 
 export default router;
