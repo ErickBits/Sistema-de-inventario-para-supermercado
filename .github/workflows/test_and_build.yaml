@@ -27,7 +27,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: app/package-lock.json   # ← borra si está en la raíz
 
       - run: npm ci
       - run: npm run build --if-present
